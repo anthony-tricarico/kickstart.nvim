@@ -234,6 +234,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   end
 end
 
+-- Keep the cursor as a block instead of reverting to a line in
+-- insert mode
+vim.opt.guicursor = 'n-v-c-i:block'
+
 ---@type vim.Option
 local rtp = vim.opt.rtp
 rtp:prepend(lazypath)
