@@ -695,7 +695,6 @@ require('lazy').setup({
           },
         },
         -- gopls = {},
-        pyright = {},
         marksman = {},
         -- rust_analyzer = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
@@ -1126,6 +1125,22 @@ require('lazy').setup({
       start = '🚀',
       task = '📌',
       lazy = '💤 ',
+    },
+  },
+})
+
+vim.lsp.config('pylsp', {})
+vim.lsp.enable 'pylsp'
+vim.lsp.set_log_level 'warn'
+
+vim.lsp.config('pylsp', {
+  settings = {
+    pylsp = {
+      plugins = {
+        pycodestyle = { enabled = false },
+        mccabe = { enabled = false },
+        -- You usually want to keep pyflakes enabled for error catching
+      },
     },
   },
 })
