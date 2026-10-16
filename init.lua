@@ -1078,7 +1078,7 @@ require('lazy').setup({
   { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
-    main = 'nvim-treesitter.configs', -- Sets main module to use for opts
+    main = 'nvim-treesitter.config', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
       ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
@@ -1151,7 +1151,7 @@ require('lazy').setup({
 
 vim.lsp.config('pylsp', {})
 vim.lsp.enable 'pylsp'
-vim.lsp.set_log_level 'warn'
+vim.lsp.log.set_level 'warn'
 
 vim.lsp.config('pylsp', {
   settings = {
