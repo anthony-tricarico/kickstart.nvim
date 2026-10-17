@@ -706,6 +706,16 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+        pylsp = {
+          settings = {
+            pylsp = {
+              plugins = {
+                pycodestyle = { enabled = false },
+                mccabe = { enable = false },
+              },
+            },
+          },
+        },
         clangd = {
           -- Configuration to make clangd recognize MPI headers
           cmd = {
@@ -1145,22 +1155,6 @@ require('lazy').setup({
       start = '🚀',
       task = '📌',
       lazy = '💤 ',
-    },
-  },
-})
-
-vim.lsp.config('pylsp', {})
-vim.lsp.enable 'pylsp'
-vim.lsp.log.set_level 'warn'
-
-vim.lsp.config('pylsp', {
-  settings = {
-    pylsp = {
-      plugins = {
-        pycodestyle = { enabled = false },
-        mccabe = { enabled = false },
-        -- You usually want to keep pyflakes enabled for error catching
-      },
     },
   },
 })
